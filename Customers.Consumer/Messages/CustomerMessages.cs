@@ -1,6 +1,12 @@
-﻿namespace Customers.Consumer.MessageHandlers
+﻿using MediatR;
+
+namespace Customers.Consumer.Message
 {
-    public class CustomerCreated
+    public interface ISqsMessage :IRequest
+    {
+
+    }
+    public class CustomerCreated : ISqsMessage
     {
         public required Guid Id { get; init; }
 
@@ -13,7 +19,7 @@
         public required DateTime DateOfBirth { get; init; }
     }
 
-    public class CustomerUpdated
+    public class CustomerUpdated : ISqsMessage
     {
         public required Guid Id { get; init; }
 
@@ -26,7 +32,7 @@
         public required DateTime DateOfBirth { get; init; }
     }
 
-    public class CustomerDeleted
+    public class CustomerDeleted : ISqsMessage
     {
         public required Guid Id { get; init; }
     }
