@@ -1,4 +1,4 @@
-﻿namespace Customers.Consumer.Contracts.Messages
+﻿namespace Customers.Consumer.MessageHandlers
 {
     public class CustomerCreated
     {

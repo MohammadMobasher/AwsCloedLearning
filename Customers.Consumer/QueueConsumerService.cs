@@ -1,7 +1,7 @@
 ﻿
 using Amazon.SQS;
 using Amazon.SQS.Model;
-using Customers.Consumer.Contracts.Messages;
+using Customers.Consumer.MessageHandlers;
 using Microsoft.Extensions.Options;
 using System.Text.Json;
 
