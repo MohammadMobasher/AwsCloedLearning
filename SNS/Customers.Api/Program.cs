@@ -1,4 +1,4 @@
-using Amazon.SQS;
+using Amazon.SimpleNotificationService;
 using Customers.Api.Database;
 using Customers.Api.Messaging;
 using Customers.Api.Repositories;
@@ -32,9 +32,9 @@ SqlMapper.RemoveTypeMap(typeof(Guid?));
 builder.Services.AddSingleton<IDbConnectionFactory>(_ =>
     new SqliteConnectionFactory(config.GetValue<string>("Database:ConnectionString")!));
 builder.Services.AddSingleton<DatabaseInitializer>();
-builder.Services.Configure<QueueSettings>(builder.Configuration.GetSection("QueueSettings"));
-builder.Services.AddSingleton<IAmazonSQS, AmazonSQSClient>();
-builder.Services.AddSingleton<ISqsMessanger, SqsMessanger>();
+builder.Services.Configure<TopicSettings>(builder.Configuration.GetSection("TopicSettings"));
+builder.Services.AddSingleton<IAmazonSimpleNotificationService, AmazonSimpleNotificationServiceClient>();
+builder.Services.AddSingleton<ISnsMessanger, SnsMessanger>();
 builder.Services.AddSingleton<ICustomerRepository, CustomerRepository>();
 builder.Services.AddSingleton<ICustomerService, CustomerService>();
 builder.Services.AddSingleton<IGitHubService, GitHubService>();

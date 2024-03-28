@@ -2,8 +2,8 @@
 
 namespace Customers.Api.Messaging
 {
-    public class QueueSettings
+    public class TopicSettings
     {
-        public string QueueName { get; set; }
+        public string TopicName { get; set; }
     }
 }
